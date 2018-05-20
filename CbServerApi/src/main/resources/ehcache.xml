@@ -1,0 +1,74 @@
+<!-- <ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="ehcache.xsd" 
+    updateCheck="true"
+    monitoring="autodetect" 
+    dynamicConfig="true">
+
+	<diskStore path="java.io.tmpdir" />
+	
+	<cache name="users" 
+		maxEntriesLocalHeap="100"
+		maxEntriesLocalDisk="1000" 
+		eternal="false" 
+		timeToIdleSeconds="300" 
+		timeToLiveSeconds="600"
+		memoryStoreEvictionPolicy="LFU" 
+		transactionalMode="off">
+		<persistence strategy="localTempSwap" />
+	</cache>
+	
+</ehcache>  -->
+<config
+        xmlns:jsr107='http://www.ehcache.org/v3/jsr107'
+        xmlns='http://www.ehcache.org/v3'>
+    <service>
+        <jsr107:defaults enable-management="true" enable-statistics="true"/>
+    </service>
+    <!-- file persistance enabling--> 
+    <persistence directory="./cache"></persistence>
+    <!-- the 2 caches we will create-->
+    <cache alias="jusers" uses-template="config-cache"/>
+    <cache alias="Alerts" uses-template="alerts-template"/>
+      <!-- the config cache template-->
+    <cache-template name="config-cache">
+        <listeners>
+            <listener>
+                 <!-- the the main cache event listener-->
+                <class>com.app.cbi.cache.CacheEventLogger</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>UNORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>UPDATED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+                <events-to-fire-on>REMOVED</events-to-fire-on>
+                <events-to-fire-on>EVICTED</events-to-fire-on>
+            </listener>
+        </listeners>
+        <resources>
+            <heap>1</heap>
+            <offheap unit="MB">1</offheap>
+            <disk persistent="true" unit="MB">100</disk>
+        </resources>
+    </cache-template>
+
+    <cache-template name="alerts-template">
+        <listeners>
+            <listener>
+                <class>com.app.cbi.cache.CacheEventLogge</class>
+                <event-firing-mode>ASYNCHRONOUS</event-firing-mode>
+                <event-ordering-mode>UNORDERED</event-ordering-mode>
+                <events-to-fire-on>CREATED</events-to-fire-on>
+                <events-to-fire-on>UPDATED</events-to-fire-on>
+                <events-to-fire-on>EXPIRED</events-to-fire-on>
+                <events-to-fire-on>REMOVED</events-to-fire-on>
+                <events-to-fire-on>EVICTED</events-to-fire-on>
+            </listener>
+        </listeners>
+        <resources>
+          <heap>1</heap>
+            <offheap unit="MB">1</offheap>
+            <disk persistent="true" unit="MB">100</disk>
+        </resources>
+    </cache-template>
+
+</config>
