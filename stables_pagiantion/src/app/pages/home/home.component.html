@@ -1,0 +1,36 @@
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <app-menu></app-menu>
+  <!--End Navigation -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <p id="id9"></p>
+      <!-- Breadcrumbs-->
+      <div id="stick" class="stick">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a>Dashboard</a>
+          </li>
+          <li class="breadcrumb-item active"><a  [routerLink]="['/home']">Home </a></li>
+        </ol>
+      </div>
+
+      <!--  Body -->
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+      <div class="card mb-3" id="body-content-id">
+        <div class="card-body">
+          <app-alert></app-alert>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-logout-modal></app-logout-modal  >
+  </div>

@@ -1,0 +1,58 @@
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+    <!-- Navigation-->
+    <app-menu></app-menu>
+    <!--End Navigation -->
+    <div class="content-wrapper">
+      <div class="container-fluid">
+        <p id="id9"></p>
+        <!-- Breadcrumbs-->
+        <div id="stick" class="stick">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item">
+                  <a [routerLink]="['/users']">Users</a>
+               </li>
+            <li class="breadcrumb-item active">
+              <a>Search User</a>
+            </li>
+          </ol>
+        </div>
+        <!--  Body
+        display1 row-border hover
+        -->
+        <br/>
+        <div class="card mb-3" id="body-content-id">
+          <div class="card-body">
+            <div class="displayDiv">
+              
+                <table id="example"  class="display1 row-border hover">
+                    <thead>
+                    <tr>
+                      <th>U ID</th>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Age</th>
+                      <th>Phone</th>
+                      <th>Salary</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                   
+              </table>
+            </div>
+          </div>
+  
+        </div>
+      </div>
+   
+   
+    </div>
+    <app-footer></app-footer>
+    <!-- Modal -->
+     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+       <app-logout-modal></app-logout-modal>
+     </div>
+      <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <app-delete-modal></app-delete-modal>
+     </div>
+     <!--End-->
+     

@@ -1,0 +1,29 @@
+
+
+.btn1 {
+    background-color: lightblue !important;
+   
+}
+.btn2 {
+    background-color:red !important;
+  
+}
+.hidden1{
+    visibility: hidden;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    background-color: transparent;
+  }
+  
+  .page-item.active .page-link {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff !important;
+    border-color: #007bff;
+}
+.example.dataTable span.highlight {
+    background-color: yellow;
+}

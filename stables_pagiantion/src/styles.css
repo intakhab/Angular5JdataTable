@@ -1,0 +1,28 @@
+/* You can add global styles to this file, and also import other style files */
+.loader-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    border: 16px solid #e0f0ff;
+    border-radius: 50%;
+    border-top-color: #263b4a;
+    border-right-color: #466278;
+    border-bottom-color: #547b91;
+    border-left-color: #e0f0ff;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s ease infinite;
+    animation: spin 2s ease infinite;
+    -webkit-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+  }
+  
+  .ng-invalid:not(form)  {
+    border-left: 5px solid #a94442; /* red */
+  }

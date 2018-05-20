@@ -1,0 +1,75 @@
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+  <!-- Navigation-->
+  <app-menu>  </app-menu>
+  <!--End Navigation -->
+  <div class="content-wrapper">
+    <div class="container-fluid">
+      <p id="id9"></p>
+      <!-- Breadcrumbs-->
+      <div id="stick" class="stick">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a [routerLink]="['/users']">Users</a>
+          </li>
+          <li class="breadcrumb-item active">
+            <a>{{createUpdateLbl}} </a>
+          </li>
+        </ol>
+      </div>
+      <!--  Body -->
+      <br/>
+      <div class="card mb-3" id="body-content-id">
+        <div class="card-body">
+          <div class="col-md-6">
+            <form name="userinfoform" (ngSubmit)="f.form.valid && createUpdateUser()" #f="ngForm" novalidate>
+
+              <div class="form-group">
+                <label for="First Name">First Name:</label>
+                <input [(ngModel)]="userinfo.firstName" placeholder="First Name" name="firstName" class="form-control" id="firstName" #firstName="ngModel" required>
+                <div *ngIf="f.submitted && !firstName.valid" class="alert alert-danger">First Name is required</div>
+
+              </div>
+              <div class="form-group">
+                <label for="Last Name">Last Name:</label>
+                <input [(ngModel)]="userinfo.lastName"  placeholder="Last Name" name="lastName" class="form-control" id="lastName" #lastName="ngModel" required> 
+                <div *ngIf="f.submitted && !lastName.valid" class="alert alert-danger">Last Name is required</div>
+
+              </div>
+              <div class="form-group"> 
+                <label for="age">Age:</label>
+                <input [(ngModel)]="userinfo.age" placeholder="Age" name="age" class="form-control" id="age" #age="ngModel" required>
+                <div *ngIf="f.submitted && !age.valid" class="alert alert-danger">Age is required</div>
+
+              </div>
+            
+              <div class="form-group">
+                <label for="phone">Phone:</label>
+                <input [(ngModel)]="userinfo.phone" placeholder="Phone" name="phone" class="form-control" id="phone" #phone="ngModel" required>
+                <div *ngIf="f.submitted && !phone.valid" class="alert alert-danger">Phone is required</div>
+
+              </div>
+  
+             <div class="form-group">
+                <label for="salary">Salary:</label>
+                <input [(ngModel)]="userinfo.salary" placeholder="Salary" name="salary" class="form-control" id="salary" #salary="ngModel" required>
+                <div *ngIf="f.submitted && !salary.valid" class="alert alert-danger">Salary is required</div>
+
+              </div>
+
+              <!-- [disabled]="loading" <button class="btn btn-success" (click)="createUser()">Create User</button> -->
+              <div class="form-group">
+                  <button  [disabled]="loading" class="btn btn-primary btn-block">{{createUpdateLbl}}</button>
+                  <img *ngIf="loading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+  <!-- Logout Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <app-logout-modal></app-logout-modal>
+  </div>
